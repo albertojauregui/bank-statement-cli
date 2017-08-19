@@ -4,9 +4,14 @@ defmodule Budget do
   def list_transactions do
     File.read!("lib/transactions.csv")
     |> parse
+    |> filter
   end
 
   defp parse(string) do
     CSV.parse_string(string)
+  end
+
+  defp filter(rows) do
+    Enum.map(rows, &Enum.drop(&1, 1))
   end
 end
