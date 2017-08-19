@@ -48,6 +48,6 @@ defmodule Budget do
   end
 
   defp print_to_console([date, description, amount]) do
-    IO.puts "#{date} #{description} #{amount}"
+    IO.puts "#{date} #{description} \t$#{:erlang.float_to_binary(amount, decimals: 2)}"
   end
 end
